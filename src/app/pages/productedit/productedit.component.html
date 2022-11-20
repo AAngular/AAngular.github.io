@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Edit Product</h5>
+      </div>
+      <div class="card-body" *ngIf="product">
+        <form [formGroup]="productForm">
+          <div class="row">
+            <div class="col-md-6">
+              
+                <label>Product Id</label>
+                <input type="text" class="form-control" formControlName="formProductId" disabled="" placeholder="Id here" name="formProductId">
+              
+            </div>
+            <div class="col-md-4 ml-auto">
+              <div class="image" style="height: auto;">
+                <img src="{{product.productImg}}" alt="{{product.productImg}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            
+                <label>Product Name</label>
+                <input type="text" class="form-control" formControlName="formProductName" placeholder="Product's Name here" name="formProductName">
+             
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+           
+                <label>Product Comment</label>
+                <input type="text" class="form-control textarea" 
+                formControlName="formProductComment"
+                placeholder="Product's comment here. Lorem ipsum dolor sit amet." 
+                name="formProductComment">
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+             
+                <label>Product Image Url</label>
+                <input type="text" class="form-control"                 
+                formControlName="formProductImg"
+                placeholder="Product's Image Url here" 
+                name="formProductImg">
+              </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button (click)="updateProduct($event); showNotification('top','right');" 
+                type="submit" class="btn btn-primary btn-round" 
+                > 
+                Update Product</button>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button (click)="deleteProduct($event); showNotificationDelete('top','right');"
+                type="delete" class="btn btn-danger btn-round" 
+                [routerLink]="['/productlist']" >
+                Delete Product</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
